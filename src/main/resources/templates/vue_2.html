@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue2</title>
+    <script src="../static/js/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <a v-bind:href="url">优就业</a>:<span v-text="result"></span>
+    <h1>{{song()}}</h1>
+
+
+    <input type="text" v-model="num1">+<input type="text" v-model="num2">
+    <button v-on:click="change">计算</button>
+</div>
+
+<br>
+
+
+
+</body>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                num1:0,
+                num2:0,
+                result:0,
+                sizt:"菜鸟教程",
+                url:"http://www.ujiuye.com"
+            },
+            methods:{
+              change:function () {
+                  this.result=Number.parseInt(this.num1)+Number.parseInt(this.num2)
+                  alert(this.result)
+              },
+              song:function () {
+                  return this.sizt+"是一个好的新手入门网站"
+              }
+
+            }
+        })
+    </script>
+
+
+
+</html>

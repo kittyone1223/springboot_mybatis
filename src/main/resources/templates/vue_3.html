@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test v-if v-for</title>
+</head>
+<script src="../static/js/vue.min.js"></script>
+<body>
+    <div id="app">
+        <!-- 遍历list -->
+        <li v-for="(item,index) in list" :key="index">
+            {{item}}  {{index}}
+        </li>
+
+
+        <li v-for="(item,index) in list" :key="index"
+            v-if="index%2==0">
+            {{item}}  {{index}}
+        </li>
+        <br>
+
+        <!--  遍历json对象 -->
+        <li v-for=" (key,value) in user">
+            {{key}}
+            <br>
+            {{value}}
+        </li>
+
+        <!--  遍历嵌套json -->
+        <li v-for="(item,index) in userList" :key="item.user.uname">
+            <div v-if="item.user.uname=='offcn'">
+                {{item.user.uname}}   ------ {{item.user.age}}
+            </div>
+
+            <div v-else="">
+                {{index}}    {{item.user.uname}}    {{item.user.age}}
+            </div>
+        </li>
+
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            list:[1,2,3,4,5],
+            user:{uname:'offcn',age:40},
+            userList:[
+                {user:{uname:'offcn',age:20}},
+                {user:{uname:'ujiuye',age:10}}
+            ]
+        }
+    })
+</script>
+
+</html>
